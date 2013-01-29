@@ -4,6 +4,8 @@
 -- Functors
 ------------------------------------------------------------------------------
 
+-- (Tested with Agda 2.3.2 and the Agda standard library 0.7.)
+
 module Abel.Category.Functor where
 
 open import Function using (id; _∘_)
