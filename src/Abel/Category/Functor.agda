@@ -1,16 +1,17 @@
 ------------------------------------------------------------------------------
--- Abel: a brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
 -- Functors
 ------------------------------------------------------------------------------
-
--- (Tested with Agda 2.3.2 and the Agda standard library 0.7.)
 
 module Abel.Category.Functor where
 
 open import Function using (id; _∘_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_)
+
+------------------------------------------------------------------------------
+-- Definition
 
 record Functor (F : Set → Set) : Set₁ where
 
