@@ -4,6 +4,9 @@
 -- Functors
 ------------------------------------------------------------------------------
 
+{-# OPTIONS --no-universe-polymorphism #-}
+{-# OPTIONS --without-K                #-}
+
 module Abel.Category.Functor where
 
 open import Function using (id; _∘_)

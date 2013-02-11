@@ -1,10 +1,11 @@
 ------------------------------------------------------------------------------
--- Abel: a brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
 -- Monads
 ------------------------------------------------------------------------------
 
--- (Tested with Agda 2.3.2 and the Agda standard library 0.7.)
+{-# OPTIONS --no-universe-polymorphism #-}
+{-# OPTIONS --without-K                #-}
 
 module Abel.Category.Monad where
 
@@ -12,10 +13,11 @@ open import Abel.Category.Applicative
 open import Abel.Category.Functor
 
 open import Function using (id; _∘_)
+
 open import Relation.Binary.PropositionalEquality using (_≡_)
 
 ------------------------------------------------------------------------------
--- Monads
+-- Definition
 
 record Monad (M : Set → Set) {applicative : Applicative M} : Set₁ where
   constructor

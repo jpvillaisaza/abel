@@ -1,20 +1,22 @@
 ------------------------------------------------------------------------------
--- Abel: a brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
 -- Applicative functors
 ------------------------------------------------------------------------------
 
--- (Tested with Agda 2.3.2 and the Agda standard library 0.7.)
+{-# OPTIONS --no-universe-polymorphism #-}
+{-# OPTIONS --without-K                #-}
 
 module Abel.Category.Applicative where
 
-open import Abel.Category.Functor
+open import Abel.Category.Functor using (Functor; mkFunctor)
 
 open import Function using (id; _∘_; _$_)
+
 open import Relation.Binary.PropositionalEquality as PropositionalEquality
 
 ------------------------------------------------------------------------------
--- Applicative functors
+-- Definition
 
 record Applicative (F : Set → Set) : Set₁ where
   constructor
