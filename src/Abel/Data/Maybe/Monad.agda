@@ -1,10 +1,11 @@
 ------------------------------------------------------------------------------
--- Abel: a brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
 -- The Maybe monad
 ------------------------------------------------------------------------------
 
--- (Tested with Agda 2.3.2 and the Agda standard library 0.7.)
+{-# OPTIONS --no-universe-polymorphism #-}
+{-# OPTIONS --without-K                #-}
 
 module Abel.Data.Maybe.Monad where
 

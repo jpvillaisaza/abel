@@ -4,6 +4,9 @@
 -- TODO
 ------------------------------------------------------------------------------
 
+{-# OPTIONS --no-universe-polymorphism #-}
+{-# OPTIONS --without-K                #-}
+
 module Abel.Data.List.Functor where
 
 open import Abel.Category.Functor using (Functor; mkFunctor)
