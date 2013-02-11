@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: a brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
--- List is a functor
+-- TODO
 ------------------------------------------------------------------------------
 
 module Abel.Data.List.Functor where
@@ -13,6 +13,9 @@ open import Data.List using (List; []; _∷_)
 open import Function using (id; _∘_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_; refl; cong)
+
+------------------------------------------------------------------------------
+-- TODO
 
 functor : Functor List
 functor = mkFunctor fmap fmap-id fmap-∘
@@ -27,5 +30,5 @@ functor = mkFunctor fmap fmap-id fmap-∘
 
     fmap-∘ : ∀ {A B C} {f : A → B} {g : B → C}
              (xs : List A) → fmap (g ∘ f) xs ≡ (fmap g ∘ fmap f) xs
-    fmap-∘ []                   = refl
+    fmap-∘             []       = refl
     fmap-∘ {f = f} {g} (x ∷ xs) = cong (_∷_ (g (f x))) (fmap-∘ xs)

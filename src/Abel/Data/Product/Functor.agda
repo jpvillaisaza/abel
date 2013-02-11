@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: a brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
--- (_×_ A) is a functor
+-- TODO
 ------------------------------------------------------------------------------
 
 module Abel.Data.Product.Functor where
@@ -12,8 +12,11 @@ open import Data.Product using (_×_; _,_)
 
 open import Relation.Binary.PropositionalEquality using (refl)
 
+------------------------------------------------------------------------------
+-- TODO
+
 functor : ∀ {A} → Functor (_×_ A)
 functor {A} = mkFunctor fmap (λ _ → refl) (λ _ → refl)
   where
     fmap : ∀ {B C} → (B → C) → A × B → A × C
-    fmap f (x , y) = x , f y
+    fmap g (x , y) = x , g y

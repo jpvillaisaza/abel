@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: a brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
--- Maybe is a functor
+-- TODO
 ------------------------------------------------------------------------------
 
 module Abel.Data.Maybe.Functor where
@@ -13,6 +13,9 @@ open import Data.Maybe using (Maybe; just; nothing)
 open import Function using (id; _∘_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
+
+------------------------------------------------------------------------------
+-- TODO
 
 functor : Functor Maybe
 functor = mkFunctor fmap fmap-id fmap-∘

@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: a brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
--- (_⊎_ A) is a functor
+-- TODO
 ------------------------------------------------------------------------------
 
 module Abel.Data.Sum.Functor where
@@ -13,6 +13,9 @@ open import Data.Sum using (_⊎_; inj₁; inj₂)
 open import Function using (id; _∘_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
+
+------------------------------------------------------------------------------
+-- TODO
 
 functor : ∀ {A} → Functor (_⊎_ A)
 functor {A} = mkFunctor fmap fmap-id fmap-∘
