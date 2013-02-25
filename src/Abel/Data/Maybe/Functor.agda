@@ -27,11 +27,11 @@ functor = mkFunctor fmap fmap-id fmap-∘
     fmap f (just x) = just (f x)
     fmap _ nothing  = nothing
 
-    fmap-id : ∀ {A} (Mx : Maybe A) → fmap id Mx ≡ id Mx
+    fmap-id : ∀ {A} (mx : Maybe A) → fmap id mx ≡ id mx
     fmap-id (just _) = refl
     fmap-id nothing  = refl
 
     fmap-∘ : ∀ {A B C} {f : A → B} {g : B → C}
-             (Mx : Maybe A) → fmap (g ∘ f) Mx ≡ (fmap g ∘ fmap f) Mx
+             (mx : Maybe A) → fmap (g ∘ f) mx ≡ (fmap g ∘ fmap f) mx
     fmap-∘ (just _) = refl
     fmap-∘ nothing  = refl

@@ -24,10 +24,10 @@ record Functor (F : Set → Set) : Set₁ where
 
     fmap    : ∀ {A B} → (A → B) → F A → F B
 
-    fmap-id : ∀ {A} (Fx : F A) → fmap id Fx ≡ id Fx
+    fmap-id : ∀ {A} (fx : F A) → fmap id fx ≡ id fx
 
     fmap-∘  : ∀ {A B C} {f : A → B} {g : B → C}
-              (Fx : F A) → fmap (g ∘ f) Fx ≡ (fmap g ∘ fmap f) Fx
+              (fx : F A) → fmap (g ∘ f) fx ≡ (fmap g ∘ fmap f) fx
 
   infixl 4 _<$>_
 
