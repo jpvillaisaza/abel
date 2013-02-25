@@ -10,7 +10,6 @@
 module Abel.Function.Category where
 
 open import Abel.Category.Category using (Category; mkCategory)
-open import Abel.Function using (_⇒_)
 
 open import Data.Product using (_,_)
 
@@ -21,5 +20,5 @@ open import Relation.Binary.PropositionalEquality using (refl)
 ------------------------------------------------------------------------------
 --
 
-category : Category _⇒_
+category : Category (λ A B → A → B)
 category = mkCategory id (λ g f → g ∘ f) (λ _ → refl) (refl , refl)

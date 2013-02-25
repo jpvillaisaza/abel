@@ -10,7 +10,6 @@
 module Abel.Function.Applicative where
 
 open import Abel.Category.Applicative
-open import Abel.Function
 
 open import Function
 open import Relation.Binary.PropositionalEquality
@@ -18,7 +17,7 @@ open import Relation.Binary.PropositionalEquality
 ------------------------------------------------------------------------------
 -- (_⇒_ A) is an applicative functor
 
-applicative : ∀ {A} → Applicative (_⇒_ A)
+applicative : ∀ {A} → Applicative (λ B → A → B)
 applicative {A} =
   mkApplicative
     pure _<*>_ (λ _ → refl) (λ _ _ _ → refl) (λ _ _ → refl) (λ _ _ → refl)

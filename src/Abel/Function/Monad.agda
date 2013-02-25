@@ -12,7 +12,6 @@ module Abel.Function.Monad where
 open import Abel.Category.Applicative
 open import Abel.Category.Functor
 open import Abel.Category.Monad
-open import Abel.Function
 open import Abel.Function.Applicative
 
 open import Function
@@ -21,7 +20,7 @@ open import Relation.Binary.PropositionalEquality
 ------------------------------------------------------------------------------
 -- (_⇒_ A) is a monad
 
-monad : ∀ {A} → Monad (_⇒_ A) {applicative}
+monad : ∀ {A} → Monad (λ B → A → B) {applicative}
 monad {A} = mkMonad _>>=_ return-left-id return-right-id >>=-assoc >>=-fmap
   where
     open Applicative applicative
