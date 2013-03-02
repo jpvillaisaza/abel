@@ -22,9 +22,11 @@ import Abel.Category.NaturalTransformation -- Natural transformations  -- TODO
 ------------------------------------------------------------------------------
 -- TODO
 
-import Abel.Data.Identity            -- TODO                           -- TODO
+import Abel.Data.Identity             -- TODO                          -- TODO
 
-import Abel.Data.Identity.Functor    -- TODO                           -- TODO
+import Abel.Data.Identity.Applicative -- TODO                          -- TODO
+import Abel.Data.Identity.Functor     -- TODO                          -- TODO
+import Abel.Data.Identity.Monad       -- TODO                          -- TODO
 
 ------------------------------------------------------------------------------
 -- TODO
