@@ -10,7 +10,7 @@
 module Abel.Data.List where
 
 open import Abel.Category.Functor
-open import Abel.Category.NaturalTransformation using (NaturalTransformation; mkNT)
+open import Abel.Category.NaturalTransformation using (NT; mkNT)
 open import Abel.Data.List.Functor renaming (functor to functorList)
 open import Abel.Data.Maybe.Functor renaming (functor to functorMaybe)
 
@@ -31,7 +31,7 @@ head (x ∷ _) = just x
 ------------------------------------------------------------------------------
 -- The head natural transformation
 
-headNT : NaturalTransformation functorList functorMaybe
+headNT : NT functorList functorMaybe
 headNT = mkNT head naturality
   where
     open Functor functorList renaming (fmap to fmapList)
@@ -53,7 +53,7 @@ last (_ ∷ xs) = last xs
 ------------------------------------------------------------------------------
 -- The last natural transformation
 
-lastNT : NaturalTransformation functorList functorMaybe
+lastNT : NT functorList functorMaybe
 lastNT = mkNT last naturality
   where
     open Functor functorList renaming (fmap to fmapList)

@@ -18,9 +18,8 @@ open import Relation.Binary.PropositionalEquality using (_≡_)
 ------------------------------------------------------------------------------
 -- Definition
 
-record NaturalTransformation {F G : Set → Set}
-                             (functorF : Functor F)
-                             (functorG : Functor G) : Set₁ where
+record NT {F G : Set → Set} (functorF : Functor F)
+                            (functorG : Functor G) : Set₁ where
 
   constructor mkNT
 
@@ -29,7 +28,7 @@ record NaturalTransformation {F G : Set → Set}
 
   field
 
-    τ          : ∀ {A} → F A → G A
+    τ          : {A : Set} → F A → G A
 
-    naturality : ∀ {A B} {f : A → B}
+    naturality : {A B : Set} {f : A → B}
                  (fx : F A) → (τ ∘ fmapF f) fx ≡ (fmapG f ∘ τ) fx
