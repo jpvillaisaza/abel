@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
--- TODO
+-- Lists
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -29,7 +29,7 @@ head []      = nothing
 head (x ∷ _) = just x
 
 ------------------------------------------------------------------------------
--- TODO
+-- The head natural transformation
 
 headNT : NaturalTransformation functorList functorMaybe
 headNT = mkNT head naturality
@@ -37,7 +37,30 @@ headNT = mkNT head naturality
     open Functor functorList renaming (fmap to fmapList)
     open Functor functorMaybe renaming (fmap to fmapMaybe)
 
-    naturality : ∀ {A B} {f : A → B} (xs : List A) →
+    naturality : {A B : Set} {f : A → B} (xs : List A) →
                  (head ∘ fmapList f) xs ≡ (fmapMaybe f ∘ head) xs
     naturality []      = refl
     naturality (_ ∷ _) = refl
+
+------------------------------------------------------------------------------
+-- TODO
+
+last : {A : Set} → List A → Maybe A
+last []       = nothing
+last (x ∷ []) = just x
+last (_ ∷ xs) = last xs
+
+------------------------------------------------------------------------------
+-- The last natural transformation
+
+lastNT : NaturalTransformation functorList functorMaybe
+lastNT = mkNT last naturality
+  where
+    open Functor functorList renaming (fmap to fmapList)
+    open Functor functorMaybe renaming (fmap to fmapMaybe)
+
+    naturality : {A B : Set} {f : A → B} (xs : List A) →
+                 (last ∘ fmapList f) xs ≡ (fmapMaybe f ∘ last) xs
+    naturality []           = refl
+    naturality (_ ∷ [])     = refl
+    naturality (_ ∷ _ ∷ xs) = naturality (_ ∷ xs)
