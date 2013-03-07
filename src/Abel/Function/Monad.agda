@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
--- The (_⇒_ A) monad
+-- TODO
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -18,7 +18,7 @@ open import Function
 open import Relation.Binary.PropositionalEquality
 
 ------------------------------------------------------------------------------
--- (_⇒_ A) is a monad
+-- TODO
 
 monad : ∀ {A} → Monad (λ B → A → B) {applicative}
 monad {A} = mkMonad _>>=_ return-left-id return-right-id >>=-assoc >>=-fmap

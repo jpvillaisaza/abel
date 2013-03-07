@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
--- The (_⇒_ A) applicative functor
+-- TODO
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -15,7 +15,7 @@ open import Function
 open import Relation.Binary.PropositionalEquality
 
 ------------------------------------------------------------------------------
--- (_⇒_ A) is an applicative functor
+-- TODO
 
 applicative : ∀ {A} → Applicative (λ B → A → B)
 applicative {A} =

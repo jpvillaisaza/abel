@@ -65,6 +65,8 @@ import Abel.Data.Sum.Monoidal        -- TODO                           -- TODO
 ------------------------------------------------------------------------------
 -- TODO
 
+import Abel.Function
+
 import Abel.Function.Applicative     -- TODO                           -- TODO
 import Abel.Function.Category        -- TODO                           -- TODO
 import Abel.Function.Functor         -- TODO                           -- TODO
