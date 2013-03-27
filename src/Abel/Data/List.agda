@@ -14,12 +14,19 @@ open import Abel.Category.NaturalTransformation using (NT; mkNT)
 open import Abel.Data.List.Functor renaming (functor to functorList)
 open import Abel.Data.Maybe.Functor renaming (functor to functorMaybe)
 
-open import Data.List using (List; []; _∷_)
+open import Data.List using (List; []; _∷_; _++_)
 open import Data.Maybe using (Maybe; just; nothing)
 
 open import Function using (_∘_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
+
+------------------------------------------------------------------------------
+-- TODO
+
+concat : {A : Set} → List (List A) → List A
+concat []         = []
+concat (xs ∷ xss) = xs ++ concat xss
 
 ------------------------------------------------------------------------------
 -- TODO
