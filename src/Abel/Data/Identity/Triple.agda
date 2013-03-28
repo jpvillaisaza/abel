@@ -22,7 +22,7 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 -- The Identity monad
 
 monad : Monad functor
-monad = mkMonad return join associativity unit-left unit-right
+monad = mkMonad return join assoc unit-left unit-right
   where
     return : {A : Set} → A → Identity A
     return = identity
@@ -32,9 +32,9 @@ monad = mkMonad return join associativity unit-left unit-right
 
     open Functor functor
 
-    associativity : {A : Set} (iiix : Identity (Identity (Identity A))) →
-                    join (join iiix) ≡ join (fmap join iiix)
-    associativity (identity _) = refl
+    assoc : {A : Set} (iiix : Identity (Identity (Identity A))) →
+            join (join iiix) ≡ join (fmap join iiix)
+    assoc (identity _) = refl
 
     unit-left : {A : Set} (ix : Identity A) → join (return ix) ≡ ix
     unit-left (identity _) = refl
@@ -46,7 +46,7 @@ monad = mkMonad return join associativity unit-left unit-right
 -- The Identity Kleisli triple
 
 triple : Triple Identity
-triple = mkTriple return bind unity₁ unity₂ associativity
+triple = mkTriple return bind assoc unit-left unit-right
   where
     return : {A : Set} → A → Identity A
     return = identity
@@ -54,13 +54,13 @@ triple = mkTriple return bind unity₁ unity₂ associativity
     bind : {A B : Set} → (A → Identity B) → Identity A → Identity B
     bind f (identity x) = f x
 
-    unity₁ : {A : Set} (ix : Identity A) → bind return ix ≡ ix
-    unity₁ (identity _) = refl
+    unit-right : {A : Set} (ix : Identity A) → bind return ix ≡ ix
+    unit-right (identity _) = refl
 
-    unity₂ : {A B : Set} {f : A → Identity B} (x : A) → bind f (return x) ≡ f x
-    unity₂ _ = refl
+    unit-left : {A B : Set} {f : A → Identity B} (x : A) →
+                bind f (return x) ≡ f x
+    unit-left _ = refl
 
-    associativity : {A B C : Set} {f : A → Identity B} {g : B → Identity C}
-                    (ix : Identity A) →
-                    bind g (bind f ix) ≡ bind (bind g ∘ f) ix
-    associativity (identity _) = refl
+    assoc : {A B C : Set} {f : A → Identity B} {g : B → Identity C}
+            (ix : Identity A) → bind g (bind f ix) ≡ bind (bind g ∘ f) ix
+    assoc (identity _) = refl

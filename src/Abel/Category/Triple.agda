@@ -30,12 +30,12 @@ record Monad {M : Set → Set} (functor : Functor M) : Set₁ where
 
     join   : {A : Set} → M (M A) → M A
 
-    associativity : {A : Set} (mmmx : M (M (M A))) →
-                    join (join mmmx) ≡ join (fmap join mmmx)
+    assoc      : {A : Set} (mmmx : M (M (M A))) →
+                 join (join mmmx) ≡ join (fmap join mmmx)
 
-    unity-left    : {A : Set} (mx : M A) → join (return mx) ≡ mx
+    unit-left  : {A : Set} (mx : M A) → join (return mx) ≡ mx
 
-    unity-right   : {A : Set} (mx : M A) → join (fmap return mx) ≡ mx
+    unit-right : {A : Set} (mx : M A) → join (fmap return mx) ≡ mx
 
   bind : {A B : Set} → (A → M B) → M A → M B
   bind f = join ∘ fmap f
@@ -53,13 +53,12 @@ record Triple (M : Set → Set) : Set₁ where
 
     bind   : {A B : Set} → (A → M B) → M A → M B
 
-    identity      : {A : Set} (mx : M A) → bind return mx ≡ mx
+    assoc      : {A B C : Set} {f : A → M B} {g : B → M C} (mx : M A) →
+                 bind g (bind f mx) ≡ bind (bind g ∘ f) mx
 
-    unity         : {A B : Set} {f : A → M B} (x : A) →
-                    bind f (return x) ≡ f x
+    unit-left  : {A B : Set} {f : A → M B} (x : A) → bind f (return x) ≡ f x
 
-    associativity : {A B C : Set} {f : A → M B} {g : B → M C} (mx : M A) →
-                    bind g (bind f mx) ≡ bind (bind g ∘ f) mx
+    unit-right : {A : Set} (mx : M A) → bind return mx ≡ mx
 
   infixl 1 _>>=_
 
