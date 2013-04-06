@@ -25,9 +25,9 @@ functor = mkFunctor fmap fmap-id fmap-∘
     fmap : ∀ {A B} → (A → B) → Identity A → Identity B
     fmap f (identity x) = identity (f x)
 
-    fmap-id : ∀ {A} (ix : Identity A) → fmap id ix ≡ id ix
+    fmap-id : ∀ {A} (x : Identity A) → fmap id x ≡ id x
     fmap-id (identity _) = refl
 
-    fmap-∘ : ∀ {A B C} {f : A → B} {g : B → C} (ix : Identity A) →
-             fmap (g ∘ f) ix ≡ (fmap g ∘ fmap f) ix
+    fmap-∘ : ∀ {A B C} {f : A → B} {g : B → C} (x : Identity A) →
+             fmap (g ∘ f) x ≡ (fmap g ∘ fmap f) x
     fmap-∘ (identity _) = refl

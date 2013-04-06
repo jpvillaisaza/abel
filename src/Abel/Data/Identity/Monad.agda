@@ -9,11 +9,10 @@
 
 module Abel.Data.Identity.Monad where
 
-open import Abel.Category.Applicative
 open import Abel.Category.Functor
 open import Abel.Category.Monad
-open import Abel.Data.Identity
-open import Abel.Data.Identity.Applicative using (applicative)
+open import Abel.Data.Identity using (Identity; identity)
+open import Abel.Data.Identity.Functor using (functor)
 
 open import Function using (_∘_)
 
@@ -22,26 +21,33 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 ------------------------------------------------------------------------------
 -- TODO
 
-monad : Monad Identity {applicative}
-monad = mkMonad _>>=_ (λ _ _ → refl) return-right-id >>=-assoc >>=-fmap
+monad : Monad functor
+monad = mkMonad return join associativity unity-left unity-right
+                naturality-return naturality-join
   where
-    infixl 1 _>>=_
+    return : {A : Set} → A → Identity A
+    return = identity
 
-    _>>=_ : ∀ {A B} → Identity A → (A → Identity B) → Identity B
-    identity x >>= f = f x
+    join : {A : Set} → Identity (Identity A) → Identity A
+    join (identity x) = x
 
-    open Applicative applicative using (pure; functor)
+    open Functor functor using (fmap)
 
-    return-right-id : ∀ {A} (ix : Identity A) → _>>=_ {B = A} ix pure ≡ ix
-    return-right-id (identity _) = refl
+    associativity : {A : Set} (x : Identity (Identity (Identity A))) →
+                    join (join x) ≡ join (fmap join x)
+    associativity (identity _) = refl
 
-    >>=-assoc : ∀ {A B C} (ix : Identity A)
-                (g : B → Identity C) (f : A → Identity B) →
-                (ix >>= λ x → f x >>= g) ≡ ((ix >>= f) >>= g)
-    >>=-assoc (identity _) _ _ = refl
+    unity-left : {A : Set} (x : Identity A) → join (return x) ≡ x
+    unity-left _ = refl
 
-    open Functor functor
+    unity-right : {A : Set} (x : Identity A) → join (fmap return x) ≡ x
+    unity-right (identity _) = refl
 
-    >>=-fmap : ∀ {A B} (f : A → B) (ix : Identity A) →
-               fmap f ix ≡ (ix >>= pure ∘ f)
-    >>=-fmap _ (identity _) = refl
+    naturality-return : {A B : Set} {f : A → Identity B} (x : A) →
+                        return (f x) ≡ fmap f (return x)
+    naturality-return _ = refl
+
+    naturality-join : {A B : Set} {f : A → Identity B}
+                      (x : Identity (Identity A)) →
+                      join (fmap (fmap f) x) ≡ fmap f (join x)
+    naturality-join (identity _) = refl
