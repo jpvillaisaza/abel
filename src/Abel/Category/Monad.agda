@@ -9,43 +9,39 @@
 
 module Abel.Category.Monad where
 
-open import Abel.Category.Applicative
 open import Abel.Category.Functor
 
-open import Function using (id; _∘_)
+open import Function using (_∘_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_)
 
 ------------------------------------------------------------------------------
 -- Definition
 
-record Monad (M : Set → Set) {applicative : Applicative M} : Set₁ where
-  constructor
-    mkMonad
+record Monad {M : Set → Set} (functor : Functor M) : Set₁ where
 
-  open Applicative applicative
-  open Functor functor
+  constructor mkMonad
 
-  infixl 1 _>>=_
-
-  return : ∀ {A} → A → M A
-  return = pure
+  open Functor functor using (fmap)
 
   field
-    _>>=_  : ∀ {A B} → M A → (A → M B) → M B
 
-    return-left-id  : ∀ {A B} (x : A) (f : A → M B) → (return x >>= f) ≡ f x
+    return : {A : Set} → A → M A
 
-    return-right-id : ∀ {A} (mx : M A) → _>>=_ {B = A} mx return ≡ mx
+    join   : {A : Set} → M (M A) → M A
 
-    >>=-assoc       : ∀ {A B C} (mx : M A) (g : B → M C) (f : A → M B) →
-                      (mx >>= λ x → f x >>= g) ≡ ((mx >>= f) >>= g)
+    associativity : {A : Set} (mmmx : M (M (M A))) →
+                    join (join mmmx) ≡ join (fmap join mmmx)
 
-    >>=-fmap        : ∀ {A B} (f : A → B) (mx : M A) →
-                      fmap f mx ≡ (mx >>= return ∘ f)
+    unity-left    : {A : Set} (mx : M A) → join (return mx) ≡ mx
 
-  _>>_ : ∀ {A B} → M A → M B → M B
-  m >> k = m >>= λ _ → k
+    unity-right   : {A : Set} (mx : M A) → join (fmap return mx) ≡ mx
 
-  join : ∀ {A} → M (M A) → M A
-  join mmx = mmx >>= id
+    naturality-return : {A B : Set} {f : A → M B} (x : A) →
+                        return (f x) ≡ fmap f (return x)
+
+    naturality-join   : {A B : Set} {f : A → M B} (mmx : M (M A)) →
+                        join (fmap (fmap f) mmx) ≡ fmap f (join mmx)
+
+  bind : {A B : Set} → (A → M B) → M A → M B
+  bind f = join ∘ fmap f
