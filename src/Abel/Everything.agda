@@ -12,12 +12,10 @@ module Abel.Everything where
 ------------------------------------------------------------------------------
 -- TODO
 
-import Abel.Category.Applicative     -- Applicative functors           -- TODO
-import Abel.Category.Category        -- Categories                     -- TODO
-import Abel.Category.Functor         -- Functors                       -- TODO
-import Abel.Category.Monad           -- Monads                         -- TODO
-import Abel.Category.Monoidal        -- Monoidal functors              -- TODO
-import Abel.Category.NaturalTransformation -- Natural transformations  -- TODO
+import Abel.Category.Category                    -- Categories
+import Abel.Category.Functor                     -- Functors
+import Abel.Category.NaturalTransformation       -- Natural transformations
+import Abel.Category.Triple                      -- Monads and Kleisli triples
 
 ------------------------------------------------------------------------------
 -- TODO
@@ -27,6 +25,7 @@ import Abel.Data.Identity             -- TODO                          -- TODO
 import Abel.Data.Identity.Applicative -- TODO                          -- TODO
 import Abel.Data.Identity.Functor     -- TODO                          -- TODO
 import Abel.Data.Identity.Monad       -- TODO                          -- TODO
+import Abel.Data.Identity.Triple
 
 ------------------------------------------------------------------------------
 -- TODO
@@ -37,6 +36,7 @@ import Abel.Data.List.Applicative    -- TODO                           -- TODO
 import Abel.Data.List.Functor        -- TODO                           -- TODO
 import Abel.Data.List.Monad          -- TODO                           -- TODO
 import Abel.Data.List.Monoidal       -- TODO                           -- TODO
+-- import Abel.Data.List.Triple
 
 ------------------------------------------------------------------------------
 -- TODO
@@ -45,6 +45,7 @@ import Abel.Data.Maybe.Applicative   -- TODO                           -- TODO
 import Abel.Data.Maybe.Functor       -- TODO                           -- TODO
 import Abel.Data.Maybe.Monad         -- TODO                           -- TODO
 import Abel.Data.Maybe.Monoidal      -- TODO                           -- TODO
+import Abel.Data.Maybe.Triple
 
 ------------------------------------------------------------------------------
 -- TODO
