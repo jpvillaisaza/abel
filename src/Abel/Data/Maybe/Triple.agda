@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
--- The Maybe monad and Kleisli triple
+-- TODO
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -10,7 +10,7 @@
 module Abel.Data.Maybe.Triple where
 
 open import Abel.Category.Functor
-open import Abel.Category.Triple using (Monad; mkMonad; Triple; mkTriple)
+open import Abel.Category.Triple using (Triple; mkTriple)
 open import Abel.Data.Maybe.Functor using (functor)
 
 open import Data.Maybe using (Maybe; just; nothing)
@@ -20,37 +20,10 @@ open import Function using (_∘_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
 ------------------------------------------------------------------------------
--- The Maybe monad
-
-monad : Monad functor
-monad = mkMonad return join assoc unit-left unit-right
-  where
-    return : {A : Set} → A → Maybe A
-    return = just
-
-    join : {A : Set} → Maybe (Maybe A) → Maybe A
-    join (just mx) = mx
-    join nothing   = nothing
-
-    open Functor functor
-
-    assoc : {A : Set} (mmmx : Maybe (Maybe (Maybe A))) →
-            join (join mmmx) ≡ join (fmap join mmmx)
-    assoc (just _) = refl
-    assoc nothing  = refl
-
-    unit-left : {A : Set} (mx : Maybe A) → join (return mx) ≡ mx
-    unit-left _ = refl
-
-    unit-right : {A : Set} (mx : Maybe A) → join (fmap return mx) ≡ mx
-    unit-right (just _) = refl
-    unit-right nothing  = refl
-
-------------------------------------------------------------------------------
--- The Maybe Kleisli triple
+-- TODO
 
 triple : Triple Maybe
-triple = mkTriple return bind assoc unit-left unit-right
+triple = mkTriple return bind associativity unity-left unity-right
   where
     return : {A : Set} → A → Maybe A
     return = just
@@ -59,15 +32,15 @@ triple = mkTriple return bind assoc unit-left unit-right
     bind f (just x) = f x
     bind _ nothing  = nothing
 
-    assoc : {A B C : Set} {f : A → Maybe B} {g : B → Maybe C} (mx : Maybe A) →
-            bind g (bind f mx) ≡ bind (bind g ∘ f) mx
-    assoc (just _) = refl
-    assoc nothing  = refl
+    associativity : {A B C : Set} {f : A → Maybe B} {g : B → Maybe C}
+                    (mx : Maybe A) → bind g (bind f mx) ≡ bind (bind g ∘ f) mx
+    associativity (just _) = refl
+    associativity nothing  = refl
 
-    unit-left : {A B : Set} {f : A → Maybe B} (x : A) →
-                bind f (return x) ≡ f x
-    unit-left _ = refl
+    unity-left : {A B : Set} {f : A → Maybe B} (x : A) →
+                 bind f (return x) ≡ f x
+    unity-left _ = refl
 
-    unit-right : {A : Set} (mx : Maybe A) → bind return mx ≡ mx
-    unit-right (just _) = refl
-    unit-right nothing  = refl
+    unity-right : {A : Set} (mx : Maybe A) → bind return mx ≡ mx
+    unity-right (just _) = refl
+    unity-right nothing  = refl
