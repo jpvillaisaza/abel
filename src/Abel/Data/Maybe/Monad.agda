@@ -10,7 +10,7 @@
 module Abel.Data.Maybe.Monad where
 
 open import Abel.Category.Functor
-open import Abel.Category.Monad using (Monad; mkMonad)
+open import Abel.Category.Monad
 open import Abel.Data.Maybe.Functor using (functor)
 
 open import Data.Maybe using (Maybe; just; nothing)
@@ -22,9 +22,9 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 ------------------------------------------------------------------------------
 -- TODO
 
-monad : Monad functor
-monad = mkMonad return join associativity unity-left unity-right
-                naturality-return naturality-join
+monad' : Monad' functor
+monad' = mkMonad' return join associativity unity-left unity-right
+                  naturality-return naturality-join
   where
     return : {A : Set} → A → Maybe A
     return = just
@@ -55,3 +55,29 @@ monad = mkMonad return join associativity unity-left unity-right
                       join (fmap (fmap f) mmx) ≡ fmap f (join mmx)
     naturality-join (just _) = refl
     naturality-join nothing  = refl
+
+------------------------------------------------------------------------------
+-- TODO
+
+monad : Monad Maybe
+monad = mkMonad return bind associativity unity-left unity-right
+  where
+    return : {A : Set} → A → Maybe A
+    return = just
+
+    bind : {A B : Set} → (A → Maybe B) → Maybe A → Maybe B
+    bind f (just x) = f x
+    bind _ nothing  = nothing
+
+    associativity : {A B C : Set} {f : A → Maybe B} {g : B → Maybe C}
+                    (mx : Maybe A) → bind g (bind f mx) ≡ bind (bind g ∘ f) mx
+    associativity (just _) = refl
+    associativity nothing  = refl
+
+    unity-left : {A B : Set} {f : A → Maybe B} (x : A) →
+                 bind f (return x) ≡ f x
+    unity-left _ = refl
+
+    unity-right : {A : Set} (mx : Maybe A) → bind return mx ≡ mx
+    unity-right (just _) = refl
+    unity-right nothing  = refl

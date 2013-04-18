@@ -21,9 +21,9 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 ------------------------------------------------------------------------------
 -- TODO
 
-monad : Monad functor
-monad = mkMonad return join associativity unity-left unity-right
-                naturality-return naturality-join
+monad' : Monad' functor
+monad' = mkMonad' return join associativity unity-left unity-right
+                  naturality-return naturality-join
   where
     return : {A : Set} → A → Identity A
     return = identity
@@ -51,3 +51,26 @@ monad = mkMonad return join associativity unity-left unity-right
                       (x : Identity (Identity A)) →
                       join (fmap (fmap f) x) ≡ fmap f (join x)
     naturality-join (identity _) = refl
+
+------------------------------------------------------------------------------
+-- TODO
+
+monad : Monad Identity
+monad = mkMonad return bind associativity unity-left unity-right
+  where
+    return : {A : Set} → A → Identity A
+    return = identity
+
+    bind : {A B : Set} → (A → Identity B) → Identity A → Identity B
+    bind f (identity x) = f x
+
+    associativity : {A B C : Set} {f : A → Identity B} {g : B → Identity C}
+                    (x : Identity A) → bind g (bind f x) ≡ bind (bind g ∘ f) x
+    associativity (identity _) = refl
+
+    unity-left : {A B : Set} {f : A → Identity B} (x : A) →
+                 bind f (return x) ≡ f x
+    unity-left _ = refl
+
+    unity-right : {A : Set} (x : Identity A) → bind return x ≡ x
+    unity-right (identity _) = refl
