@@ -22,6 +22,13 @@ open import Function using (_∘_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
 ------------------------------------------------------------------------------
+--
+
+foldr : {A B : Set} → (A → B → B) → B → List A → B
+foldr c n []       = n
+foldr c n (x ∷ xs) = c x (foldr c n xs)
+
+------------------------------------------------------------------------------
 -- TODO
 
 concat : {A : Set} → List (List A) → List A
