@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
--- TODO
+-- Natural numbers
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -9,11 +9,13 @@
 
 module Abel.Data.Nat where
 
-open import Data.Nat using (ℕ; zero; suc)
+open import Data.Nat using (ℕ; zero; suc; fold)
 
 ------------------------------------------------------------------------------
--- TODO
+-- Folds
 
-fold : {A : Set} → (A → A) → A → ℕ → A
-fold h c zero    = c
-fold h c (suc n) = h (fold h c n)
+add : ℕ → ℕ → ℕ
+add m n = fold n suc m
+
+mul : ℕ → ℕ → ℕ
+mul m n = fold zero (add n) m

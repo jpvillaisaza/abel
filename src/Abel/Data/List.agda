@@ -16,24 +16,30 @@ open import Abel.Data.Maybe.Functor renaming (functor to functorMaybe)
 
 open import Data.List using (List; []; _∷_; _++_)
 open import Data.Maybe using (Maybe; just; nothing)
+open import Data.Nat using (ℕ; zero; suc)
 
 open import Function using (_∘_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
 ------------------------------------------------------------------------------
---
+-- Fold
 
 foldr : {A B : Set} → (A → B → B) → B → List A → B
 foldr c n []       = n
 foldr c n (x ∷ xs) = c x (foldr c n xs)
 
 ------------------------------------------------------------------------------
--- TODO
+-- Folds
 
 concat : {A : Set} → List (List A) → List A
-concat []         = []
-concat (xs ∷ xss) = xs ++ concat xss
+concat = foldr _++_ []
+
+length : {A : Set} → List A → ℕ
+length = foldr (λ _ → suc) zero
+
+map : {A B : Set} → (A → B) → List A → List B
+map f = foldr (_∷_ ∘ f) []
 
 ------------------------------------------------------------------------------
 -- TODO
