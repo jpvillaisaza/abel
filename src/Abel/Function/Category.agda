@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
 --
--- TODO
+-- The category of small types and functions
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -9,16 +9,21 @@
 
 module Abel.Function.Category where
 
-open import Abel.Category.Category using (Category; mkCategory)
+open import Abel.Data.Product using (_×_; _,_)
+open import Abel.Function using (id; _∘_)
 
-open import Data.Product using (_,_)
-
-open import Function using (id; _∘_)
-
-open import Relation.Binary.PropositionalEquality using (refl)
+open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
 ------------------------------------------------------------------------------
--- TODO
+-- Associativity
 
-category : Category (λ A B → A → B)
-category = mkCategory id (λ g f → g ∘ f) (λ _ → refl) (refl , refl)
+associativity : {A B C D : Set} {f : A → B} {g : B → C} {h : C → D}
+                (x : A) → (h ∘ g ∘ f) x ≡ ((h ∘ g) ∘ f) x
+associativity _ = refl
+
+------------------------------------------------------------------------------
+-- Identity
+
+identity : {A B : Set} {f : A → B}
+           (x : A) → (id ∘ f) x ≡ f x × (f ∘ id) x ≡ f x
+identity _ = refl , refl

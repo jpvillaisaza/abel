@@ -9,7 +9,7 @@
 
 module Abel.Category.Category where
 
-open import Data.Product using (_×_)
+open import Abel.Data.Product using (_×_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_)
 
@@ -24,11 +24,11 @@ record Category (_⇒_ : Set → Set → Set) : Set₁ where
 
   field
 
-    id         : ∀ {A} → A ⇒ A
+    id            : {A : Set} → A ⇒ A
 
-    _∘_        : ∀ {A B C} → B ⇒ C → A ⇒ B → A ⇒ C
+    _∘_           : {A B C : Set} → B ⇒ C → A ⇒ B → A ⇒ C
 
-    ∘-assoc    : ∀ {A B C D} {f : A ⇒ B} {g : B ⇒ C} {h : C ⇒ D}
-                 (x : A) → h ∘ (g ∘ f) ≡ (h ∘ g) ∘ f
+    associativity : {A B C D : Set} {f : A ⇒ B} {g : B ⇒ C} {h : C ⇒ D}
+                    (x : A) → h ∘ (g ∘ f) ≡ (h ∘ g) ∘ f
 
-    ∘-identity : ∀ {A B C} {f : A ⇒ B} {g : B ⇒ C} → id ∘ f ≡ f × g ∘ id ≡ g
+    identity      : {A B : Set} {f : A ⇒ B} → id ∘ f ≡ f × f ∘ id ≡ f
