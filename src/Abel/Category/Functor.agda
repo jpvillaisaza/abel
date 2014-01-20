@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
 -- Functors
 ------------------------------------------------------------------------------
@@ -9,7 +9,7 @@
 
 module Abel.Category.Functor where
 
-open import Function using (id; _∘_)
+open import Abel.Function using (id; _∘_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_)
 
@@ -22,12 +22,12 @@ record Functor (F : Set → Set) : Set₁ where
 
   field
 
-    fmap    : ∀ {A B} → (A → B) → F A → F B
+    fmap    : {A B : Set} → (A → B) → F A → F B
 
-    identity    : ∀ {A} (fx : F A) → fmap id fx ≡ id fx
+    fmap-id : {A : Set} (fx : F A) → fmap id fx ≡ id fx
 
-    composition : ∀ {A B C} {f : A → B} {g : B → C} (fx : F A) →
-                  fmap (g ∘ f) fx ≡ (fmap g ∘ fmap f) fx
+    fmap-∘  : {A B C : Set} {f : A → B} {g : B → C}
+              (fx : F A) → fmap (g ∘ f) fx ≡ (fmap g ∘ fmap f) fx
 
   infixl 4 _<$>_
 

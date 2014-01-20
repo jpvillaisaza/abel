@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The Maybe functor
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -10,28 +10,26 @@
 module Abel.Data.Maybe.Functor where
 
 open import Abel.Category.Functor using (Functor; mkFunctor)
-
-open import Data.Maybe using (Maybe; just; nothing)
-
-open import Function using (id; _∘_)
+open import Abel.Data.Maybe using (Maybe; just; nothing)
+open import Abel.Function using (id; _∘_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The functor
 
 functor : Functor Maybe
 functor = mkFunctor fmap fmap-id fmap-∘
   where
-    fmap : ∀ {A B} → (A → B) → Maybe A → Maybe B
+    fmap : {A B : Set} → (A → B) → Maybe A → Maybe B
     fmap f (just x) = just (f x)
     fmap _ nothing  = nothing
 
-    fmap-id : ∀ {A} (mx : Maybe A) → fmap id mx ≡ id mx
+    fmap-id : {A : Set} (mx : Maybe A) → fmap id mx ≡ id mx
     fmap-id (just _) = refl
     fmap-id nothing  = refl
 
-    fmap-∘ : ∀ {A B C} {f : A → B} {g : B → C}
+    fmap-∘ : {A B C : Set} {f : A → B} {g : B → C}
              (mx : Maybe A) → fmap (g ∘ f) mx ≡ (fmap g ∘ fmap f) mx
     fmap-∘ (just _) = refl
     fmap-∘ nothing  = refl

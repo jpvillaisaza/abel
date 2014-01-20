@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
 -- Functions
 ------------------------------------------------------------------------------
@@ -9,8 +9,8 @@
 
 module Abel.Function where
 
-open import Abel.Category.NaturalTransformation using (NT; mkNT)
-open import Abel.Data.Identity.Functor renaming (functor to functorId)
+-- open import Abel.Category.NaturalTransformation using (NT; mkNT)
+-- open import Abel.Data.Identity.Functor renaming (functor to functorId)
 
 open import Relation.Binary.PropositionalEquality using (refl)
 
@@ -31,5 +31,5 @@ g ∘ f = λ x → g (f x)
 ------------------------------------------------------------------------------
 -- The id natural transformation
 
-idNT : NT functorId functorId
-idNT = mkNT id (λ _ → refl)
+-- idNT : NT functorId functorId
+-- idNT = mkNT id (λ _ → refl)

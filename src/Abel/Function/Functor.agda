@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The function functor
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -10,13 +10,12 @@
 module Abel.Function.Functor where
 
 open import Abel.Category.Functor using (Functor; mkFunctor)
-
-open import Function using (_∘_)
+open import Abel.Function using (_∘_)
 
 open import Relation.Binary.PropositionalEquality using (refl)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The functor
 
-functor : ∀ {A} → Functor (λ B → A → B)
-functor {A} = mkFunctor (λ g f → g ∘ f) (λ _ → refl) (λ _ → refl)
+functor : {A : Set} → Functor (λ B → A → B)
+functor = mkFunctor (λ g f → g ∘ f) (λ _ → refl) (λ _ → refl)
