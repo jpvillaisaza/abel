@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
 -- The category of small types and functions
 ------------------------------------------------------------------------------

@@ -12,10 +12,10 @@ module Abel.Data.List where
 open import Abel.Category.Functor
 open import Abel.Category.NaturalTransformation using (NT; mkNT)
 open import Abel.Data.List.Functor renaming (functor to functorList)
+open import Abel.Data.Maybe using (Maybe; just; nothing)
 open import Abel.Data.Maybe.Functor renaming (functor to functorMaybe)
 
 open import Data.List using (List; []; _∷_; _++_)
-open import Data.Maybe using (Maybe; just; nothing)
 open import Data.Nat using (ℕ; zero; suc)
 
 open import Function using (_∘_)
@@ -42,7 +42,7 @@ map : {A B : Set} → (A → B) → List A → List B
 map f = foldr (_∷_ ∘ f) []
 
 ------------------------------------------------------------------------------
--- TODO
+-- The head function
 
 head : {A : Set} → List A → Maybe A
 head []      = nothing
