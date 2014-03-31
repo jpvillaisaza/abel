@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The Identity applicative functor
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -17,7 +17,7 @@ open import Function using (id; _∘_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The Identity applicative endofunctor
 
 applicative : Applicative Identity
 applicative = mkApplicative pure _<*>_ pure-id pure-∘ (λ _ _ → refl) pure-inter

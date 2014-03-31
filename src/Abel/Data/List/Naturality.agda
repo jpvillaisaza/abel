@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- Abel: A brother of Cain
 --
--- TODO
+-- The head and last natural transformations
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}

@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The initial algebra over the List endofunctor
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -22,7 +22,7 @@ open import Function using (_∘_; id)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The List type
 
 infixr 5 _∷_
 
@@ -31,7 +31,7 @@ data List (A : Set) : Set where
   _∷_ : A → List A → List A
 
 ------------------------------------------------------------------------------
--- TODO
+-- The L endofunctor
 
 L : {A : Set} → Set → Set
 L {A} B = ⊤ + A × B
@@ -53,7 +53,7 @@ functorL {A} = mkFunctor fmap fmap-id fmap-∘
     fmap-∘ (inj₂ (_ , _)) = refl
 
 ------------------------------------------------------------------------------
--- TODO
+-- The initial algebra
 
 algebra : {A : Set} → Algebra functorL
 algebra {A} = mkAlgebra (List A) [ (λ _ → []) , uncurry _∷_ ]

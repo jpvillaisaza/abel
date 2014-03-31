@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
 -- Monoidal functors
 ------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ assoc : {A B C : Set} → A × B × C → (A × B) × C
 assoc (x , y , z) = (x , y) , z
 
 ------------------------------------------------------------------------------
--- Monoidal functors
+-- Definition
 
 record Monoidal (F : Set → Set) {functor : Functor F} : Set₁ where
   constructor

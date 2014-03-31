@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The initial algebra over the Identity endofunctor
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -16,7 +16,7 @@ open import Abel.Data.Identity.Functor renaming (functor to functorI)
 open import Data.Empty using (⊥)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The algebra
 
 algebra : Algebra functorI
 algebra = mkAlgebra ⊥ α

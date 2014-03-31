@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- Properties concerning lists
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -16,7 +16,7 @@ open import Data.List using (List; []; _∷_; _++_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl; cong)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The properties
 
 ++-[] : {A : Set} (xs : List A) → xs ++ [] ≡ xs
 ++-[] []       = refl

@@ -13,7 +13,7 @@ module Abel.README where
 --
 ------------------------------------------------------------------------------
 
--- (Tested with Agda 2.3.2 and the Agda standard library 0.7.)
+-- (Tested with Agda 2.3.2.2 and the Agda standard library 0.7.)
 
 ------------------------------------------------------------------------------
 --

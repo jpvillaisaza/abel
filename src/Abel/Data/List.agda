@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
 -- Lists
 ------------------------------------------------------------------------------
@@ -63,7 +63,7 @@ headNT = mkNT head naturality
     naturality (_ ∷ _) = refl
 
 ------------------------------------------------------------------------------
--- TODO
+-- The last function
 
 last : {A : Set} → List A → Maybe A
 last []       = nothing

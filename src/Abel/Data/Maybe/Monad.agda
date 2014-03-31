@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The Maybe monad and Kleisli triple
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -11,16 +11,15 @@ module Abel.Data.Maybe.Monad where
 
 open import Abel.Category.Functor
 open import Abel.Category.Monad
+open import Abel.Data.Maybe using (Maybe; just; nothing)
 open import Abel.Data.Maybe.Functor using (functor)
-
-open import Data.Maybe using (Maybe; just; nothing)
 
 open import Function using (_∘_)
 
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The Maybe monad
 
 monad' : Monad' functor
 monad' = mkMonad' return join associativity unity-left unity-right
@@ -57,7 +56,7 @@ monad' = mkMonad' return join associativity unity-left unity-right
     naturality-join nothing  = refl
 
 ------------------------------------------------------------------------------
--- TODO
+-- The Maybe Kleisli triple
 
 monad : Monad Maybe
 monad = mkMonad return bind associativity unity-left unity-right

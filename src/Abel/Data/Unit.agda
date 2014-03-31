@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The unit type
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -12,7 +12,7 @@ module Abel.Data.Unit where
 open import Data.Unit using (⊤; tt)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The ⊤ (unit) type
 
 unit : {A : Set} → A → ⊤
 unit _ = tt

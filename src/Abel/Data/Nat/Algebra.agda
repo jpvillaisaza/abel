@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The initial algebra over the N endofunctor
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -21,7 +21,7 @@ open import Function using (_∘_; id)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The N endofunctor
 
 N : Set → Set
 N A = ⊤ + A
@@ -43,7 +43,7 @@ functorN = mkFunctor fmap fmap-id fmap-∘
     fmap-∘ (inj₂ _) = refl
 
 ------------------------------------------------------------------------------
--- TODO
+-- The initial algebra over N
 
 algebra : Algebra functorN
 algebra = mkAlgebra ℕ [ (λ _ → zero) , suc ]

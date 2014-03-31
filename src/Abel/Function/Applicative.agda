@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The function applicative endofunctor
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -15,7 +15,7 @@ open import Function
 open import Relation.Binary.PropositionalEquality
 
 ------------------------------------------------------------------------------
--- TODO
+-- The applicative endofunctor
 
 applicative : ∀ {A} → Applicative (λ B → A → B)
 applicative {A} =

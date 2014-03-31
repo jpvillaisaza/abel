@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The ⊥ (empty) type
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -12,7 +12,7 @@ module Abel.Data.Empty where
 open import Data.Empty using (⊥)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The ⊥ (empty) type is the initial object
 
 ⊥-elim : {A : Set} → ⊥ → A
 ⊥-elim ()

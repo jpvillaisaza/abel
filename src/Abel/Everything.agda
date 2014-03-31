@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
 -- Everything
 ------------------------------------------------------------------------------
@@ -10,66 +10,55 @@
 module Abel.Everything where
 
 ------------------------------------------------------------------------------
--- TODO
+-- Category theory
 
 import Abel.Category.Category                    -- Categories
-import Abel.Category.Functor                     -- Functors
+import Abel.Category.Functor                     -- Endofunctors
 import Abel.Category.NaturalTransformation       -- Natural transformations
-import Abel.Category.Triple                      -- Monads and Kleisli triples
+import Abel.Category.Monad                       -- Monads and Kleisli triples
 
 ------------------------------------------------------------------------------
--- TODO
+-- Identity
 
-import Abel.Data.Identity             -- TODO                          -- TODO
+import Abel.Data.Identity
 
-import Abel.Data.Identity.Applicative -- TODO                          -- TODO
-import Abel.Data.Identity.Functor     -- TODO                          -- TODO
-import Abel.Data.Identity.Monad       -- TODO                          -- TODO
-import Abel.Data.Identity.Triple
+import Abel.Data.Identity.Applicative
+import Abel.Data.Identity.Functor
+import Abel.Data.Identity.Monad
 
 ------------------------------------------------------------------------------
--- TODO
+-- List
 
 import Abel.Data.List
 
-import Abel.Data.List.Applicative    -- TODO                           -- TODO
-import Abel.Data.List.Functor        -- TODO                           -- TODO
-import Abel.Data.List.Monad          -- TODO                           -- TODO
-import Abel.Data.List.Monoidal       -- TODO                           -- TODO
--- import Abel.Data.List.Triple
+import Abel.Data.List.Functor
+import Abel.Data.List.Monad
 
 ------------------------------------------------------------------------------
--- TODO
+-- Maybe
 
-import Abel.Data.Maybe.Applicative   -- TODO                           -- TODO
-import Abel.Data.Maybe.Functor       -- TODO                           -- TODO
-import Abel.Data.Maybe.Monad         -- TODO                           -- TODO
-import Abel.Data.Maybe.Monoidal      -- TODO                           -- TODO
-import Abel.Data.Maybe.Triple
+import Abel.Data.Maybe.Functor
+import Abel.Data.Maybe.Monad
 
 ------------------------------------------------------------------------------
--- TODO
+-- Products
 
-import Abel.Data.Product.Applicative -- TODO                           -- TODO
-import Abel.Data.Product.Functor     -- TODO                           -- TODO
-import Abel.Data.Product.Monad       -- TODO                           -- TODO
-import Abel.Data.Product.Monoidal    -- TODO                           -- TODO
+import Abel.Data.Product
 
-------------------------------------------------------------------------------
--- TODO
-
-import Abel.Data.Sum.Applicative     -- TODO                           -- TODO
-import Abel.Data.Sum.Functor         -- TODO                           -- TODO
-import Abel.Data.Sum.Monad           -- TODO                           -- TODO
-import Abel.Data.Sum.Monoidal        -- TODO                           -- TODO
+import Abel.Data.Product.Functor
+import Abel.Data.Product.Monad
 
 ------------------------------------------------------------------------------
--- TODO
+-- Coproducts
+
+import Abel.Data.Sum
+
+import Abel.Data.Sum.Functor
+
+------------------------------------------------------------------------------
+-- Function
 
 import Abel.Function
 
-import Abel.Function.Applicative     -- TODO                           -- TODO
-import Abel.Function.Category        -- TODO                           -- TODO
-import Abel.Function.Functor         -- TODO                           -- TODO
-import Abel.Function.Monad           -- TODO                           -- TODO
-import Abel.Function.Monoidal        -- TODO                           -- TODO
+import Abel.Function.Category
+import Abel.Function.Functor

@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
---
+-- The Maybe monoidal functor
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -11,9 +11,9 @@ module Abel.Data.Maybe.Monoidal where
 
 open import Abel.Category.Functor
 open import Abel.Category.Monoidal
+open import Abel.Data.Maybe using (Maybe; just; nothing)
 open import Abel.Data.Maybe.Functor
 
-open import Data.Maybe using (Maybe; just; nothing)
 open import Data.Product hiding (map)
 open import Data.Unit using (⊤; tt)
 open import Relation.Binary.PropositionalEquality

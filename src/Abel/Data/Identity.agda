@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The Identity type
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -10,7 +10,7 @@
 module Abel.Data.Identity where
 
 ------------------------------------------------------------------------------
--- TODO
+-- The Identity type
 
 data Identity (A : Set) : Set where
   identity : (x : A) → Identity A

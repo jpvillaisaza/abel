@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
 -- The Maybe applicative functor
 ------------------------------------------------------------------------------
@@ -10,7 +10,6 @@
 module Abel.Data.Maybe.Applicative where
 
 open import Abel.Category.Applicative using (Applicative; mkApplicative)
--- open import Abel.Data.Maybe.Functor
 
 open import Data.Maybe using (Maybe; just; nothing)
 open import Function using (id; _∘_)

@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- TODO
+-- The List monad and Kleisli triple
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -23,7 +23,7 @@ open import Function using (_∘_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl; cong)
 
 ------------------------------------------------------------------------------
--- TODO
+-- The List monad
 
 monad' : Monad' functor
 monad' = mkMonad' return join associativity unity-left unity-right
@@ -65,7 +65,7 @@ monad' = mkMonad' return join associativity unity-left unity-right
       cong (_∷_ (f x)) (naturality-join (xs ∷ xss))
 
 ------------------------------------------------------------------------------
--- TODO
+-- The List Kleisli triple
 
 monad : Monad List
 monad = mkMonad return bind associativity unity-left unity-right

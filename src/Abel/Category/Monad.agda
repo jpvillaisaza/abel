@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
--- Monads
+-- Monads and Kleisli triples
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
@@ -16,7 +16,7 @@ open import Function using (_∘_; id)
 open import Relation.Binary.PropositionalEquality using (_≡_)
 
 ------------------------------------------------------------------------------
--- Monads (in monoid form)
+-- Definition (Monad)
 
 record Monad' {M : Set → Set} (functor : Functor M) : Set₁ where
 
@@ -47,7 +47,7 @@ record Monad' {M : Set → Set} (functor : Functor M) : Set₁ where
   bind f = join ∘ fmap f
 
 ------------------------------------------------------------------------------
--- Monads (in extension form)
+-- Definition (Kleisli triple or monad in extension form)
 
 record Monad (M : Set → Set) : Set₁ where
 
