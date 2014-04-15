@@ -14,15 +14,20 @@ module Everything where
 ------------------------------------------------------------------------------
 -- Chapter 1 (Categories)
 
+-- Identity and composition
 import Abel.Function
+
+-- Associativity and identity
 import Abel.Function.Category
 
 ------------------------------------------------------------------------------
 -- Chapter 2 (Constructions)
 
+-- The empty and unit types
 import Abel.Data.Empty
 import Abel.Data.Unit
 
+-- Products and coproducts
 import Abel.Data.Product
 import Abel.Data.Sum
 
@@ -32,6 +37,7 @@ import Abel.Data.Sum
 -- The Functor record
 import Abel.Category.Functor
 
+-- The Identity, Maybe, and List types
 import Abel.Data.Identity
 import Abel.Data.Maybe
 import Abel.Data.List
