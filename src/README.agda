@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain                https://github.com/jpvillaisaza/abel
+-- Abel: A brother of Cain
 --
 -- README
 ------------------------------------------------------------------------------
@@ -7,7 +7,7 @@
 {-# OPTIONS --no-universe-polymorphism #-}
 {-# OPTIONS --without-K                #-}
 
-module Abel.README where
+module README where
 
 ------------------------------------------------------------------------------
 --
@@ -33,7 +33,19 @@ module Abel.README where
 -- https://bitbucket.org/jpvillaisaza/seth
 
 ------------------------------------------------------------------------------
--- Everything
+-- Everything or All library modules
 ------------------------------------------------------------------------------
 
-import Abel.Everything
+-- For short descriptions of every module, see Everything:
+
+import Everything
+
+------------------------------------------------------------------------------
+-- More documentation
+------------------------------------------------------------------------------
+
+
+
+-- Note that all library sources are located under src. The modules
+-- README and Everything are not really part of the library, so these
+-- modules are located in the top-level directory instead.
