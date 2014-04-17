@@ -55,8 +55,8 @@ monad' = mkMonad' return join associativity unity-left unity-right
 ------------------------------------------------------------------------------
 -- The Identity Kleisli triple
 
-monad : Monad Identity
-monad = mkMonad return bind associativity unity-left unity-right
+monad : Monad'' Identity
+monad = mkMonad'' return bind associativity unity-left unity-right
   where
     return : {A : Set} → A → Identity A
     return = identity

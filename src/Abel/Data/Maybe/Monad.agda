@@ -58,8 +58,8 @@ monad' = mkMonad' return join associativity unity-left unity-right
 ------------------------------------------------------------------------------
 -- The Maybe Kleisli triple
 
-monad : Monad Maybe
-monad = mkMonad return bind associativity unity-left unity-right
+monad : Monad'' Maybe
+monad = mkMonad'' return bind associativity unity-left unity-right
   where
     return : {A : Set} → A → Maybe A
     return = just

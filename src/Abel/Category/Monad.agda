@@ -49,9 +49,9 @@ record Monad' {M : Set → Set} (functor : Functor M) : Set₁ where
 ------------------------------------------------------------------------------
 -- Definition (Kleisli triple or monad in extension form)
 
-record Monad (M : Set → Set) : Set₁ where
+record Monad'' (M : Set → Set) : Set₁ where
 
-  constructor mkMonad
+  constructor mkMonad''
 
   field
 

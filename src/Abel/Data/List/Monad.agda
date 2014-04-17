@@ -67,8 +67,8 @@ monad' = mkMonad' return join associativity unity-left unity-right
 ------------------------------------------------------------------------------
 -- The List Kleisli triple
 
-monad : Monad List
-monad = mkMonad return bind associativity unity-left unity-right
+monad : Monad'' List
+monad = mkMonad'' return bind associativity unity-left unity-right
   where
     return : {A : Set} → A → List A
     return x = x ∷ []
