@@ -12,11 +12,11 @@ Programming. Undergraduate project. EAFIT. URL:
 [http://bit.ly/1cq5fwN](http://bit.ly/1cq5fwN).
 
 The Haskell code was tested with GHC 7.6.3. Most of it corresponds to
-or is based on standard Haskell code, and be used as it is. See
-src/Cain.hs.
+or is based on standard Haskell code, and can be used as it is. See
+`src/Cain.hs`.
 
 The Agda code was tested with Agda 2.3.2.2 and the Agda standard
-library 0.7. See src/Abel.hs.
+library 0.7. See `src/Abel.hs`.
 
 For more information, send an email to
 [jvillai@eafit.edu.co](mailto:jvillai@eafit.edu.co).
