@@ -1,15 +1,15 @@
 ------------------------------------------------------------------------------
--- Abel: A brother of Cain
+-- Category Theory Applied to Functional Programming
 --
--- Everything
+-- Agda code
 ------------------------------------------------------------------------------
 
 {-# OPTIONS --no-universe-polymorphism #-}
 {-# OPTIONS --without-K                #-}
 
-module Everything where
+module Abel where
 
--- Category Theory Applied to Functional Programming in Agda
+-- (Tested with Agda 2.3.2.2 and the Agda standard library 0.7.)
 
 ------------------------------------------------------------------------------
 -- Chapter 1 (Categories)
