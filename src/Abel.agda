@@ -9,7 +9,7 @@
 
 module Abel where
 
--- (Tested with Agda 2.3.2.2 and the Agda standard library 0.7.)
+-- (Last tested with Agda 2.5.1.1 and the Agda standard library 0.12.)
 
 ------------------------------------------------------------------------------
 -- Chapter 1 (Categories)

@@ -15,8 +15,12 @@ The Haskell code was tested with GHC 7.6.3. Most of it corresponds to
 or is based on standard Haskell code, and can be used as it is. See
 `src/Cain.hs`.
 
-The Agda code was tested with Agda 2.3.2.2 and the Agda standard
-library 0.7. See `src/Abel.agda`.
+The Agda code was tested with:
+
+- Agda 2.3.2.2 and the Agda standard library 0.7
+- Agda 2.5.1.1 and the Agda standard library 0.12
+
+See `src/Abel.agda`.
 
 For more information, send an email to
 [jvillai@eafit.edu.co](mailto:jvillai@eafit.edu.co).
